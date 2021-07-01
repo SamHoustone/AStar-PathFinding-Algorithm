@@ -77,11 +77,15 @@ public class FindPathX : MonoBehaviour
             for (int x = 1; z < maze.width - 1; x++)
             {
                 if (maze.map[x, z] != 1)
-                    locations.Add(new MapLocation(x, z));
+                     locations.Add(new MapLocation(x, z));
             }
-            locations.Shuffle();
+            //locations.Shuffle();
 
-            Vector3 startLocation = new Vector3(locations[0].x, 0, locations[0].z);
+            //Vector3 startLocation = new Vector3(locations[0].x * maze.scale, 0, locations[0].z * maze.scale);
+            //startNode = new PathMarker(new MapLocation(locations[0].x, locations[0].z), 0, 0, 0, Instantiate(start, startLocation, Quaternion.identity), null);
+
+            //Vector3 goallocation = new Vector3(locations[1].x * maze.scale, 0, locations[1].z * maze.scale);
+            //startNode = new PathMarker(new MapLocation(locations[1].x, locations[1].z), 0, 0, 0, Instantiate(end, goallocation, Quaternion.identity), null);
 
         }
     }
@@ -95,6 +99,9 @@ public class FindPathX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            BeginSearch();
+        }    
     }
 }
